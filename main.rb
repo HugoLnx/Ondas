@@ -1,6 +1,8 @@
 
 	# Criado Por HugoLnx ( hugolnx@gmail.com )
 
+here = File.dirname(__FILE__)
+Dir.chdir(here)
 require 'rubygems'
 require 'gosu'
 require 'onda'
