@@ -1,1 +1,16 @@
-Para ser criado xD
+= Programa de Demonstração de Ondas
+Você dá as propriedades da onda, e ele tenta calcular o resto delas,
+logo após, ele irá desenhar a onda e animá-la.
+
+Lembre-se que toda onda segue os seguintes critérios...
+*velocidade = lambda * frequencia
+*frequencia = 1 / periodo
+
+Se quiser testar, pode usar os seguintes valores...
+*amplietude => 30.0
+*lambda => 50.0
+*velocidade => 25.0
+*periodo => 2.0
+*frequencia => 0.5
+
+Autor: HugoLnx (Hugo Roque de Fiqueiredo - hugolnx@hotmail.com)
