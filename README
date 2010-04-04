@@ -1,8 +1,8 @@
-== Programa de Demonstração de Ondas
-Você dá as propriedades da onda, e ele tenta calcular o resto delas,
-logo após, ele irá desenhar a onda e animá-la.
+== Programa de Demonstracao de Ondas
+Voce da as propriedades da onda, e ele tenta calcular o resto delas,
+logo apos, ele ira desenhar a onda e anima-la.
 
-Lembre-se que toda onda segue os seguintes critérios...
+Lembre-se que toda onda segue os seguintes criterios...
  * velocidade = lambda * frequencia
  * frequencia = 1 / periodo
 
