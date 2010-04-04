@@ -42,7 +42,6 @@ class Onda
 	end
 	
 	def now
-
-		(Gosu.milliseconds - @start_time)/1000
+		(Gosu.milliseconds - @start_time).to_f/1000
 	end
 end

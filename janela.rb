@@ -19,11 +19,11 @@ class Janela < Gosu::Window
 		
 		@error_text = ''
 		
-		#@onda = Onda.new(:amplietude => 30.0,
-		#			:lambda => 50.0,
-		#			:velocidade => 200.0,
-		#			:periodo => 0.25,
-		#			:frequencia => 4.0)
+		@onda = Onda.new(:amplietude => 30.0,
+					:lambda => 50.0,
+					:velocidade => 25.0,
+					:periodo => 2.0,
+					:frequencia => 0.5)
 	end
 	
 	def draw
