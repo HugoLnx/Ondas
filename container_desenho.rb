@@ -7,11 +7,12 @@ class ContainerDesenho < Container
 	end
 	
 	def draw
-		@janela_pai.desenha_retangulo(@x,@y,@width,@height,@cor)
-		if !@janela_pai.onda.nil?
-			desenha_onda(@janela_pai.onda,@x,@y + @height/2,Gosu::Color::BLACK)
+		@janela_pai.clip_to(@x,@y,@width,@height) do
+			@janela_pai.desenha_retangulo(@x,@y,@width,@height,@cor)
+			if !@janela_pai.onda.nil?
+				desenha_onda(@janela_pai.onda,@x,@y + @height/2,Gosu::Color::BLACK)
+			end
 		end
-		
 	end
 	
 	def desenha_onda(onda,x,y,cor)
