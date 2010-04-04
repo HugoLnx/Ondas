@@ -1,21 +1,38 @@
 class Janela < Gosu::Window
+	attr_writer :error_text
+	attr_reader :font, :font_color
+	attr_accessor :onda
 	def initialize
-		super(500,300,false)
+		super(500,310,false)
 		self.caption = 'Trabalho de Ondas by HugoLnx'
 		
 		@cor_de_fundo = Gosu::Color.new(255,221,237,254)
 		
 		@cursor = Gosu::Image.new(self, "Cursor.png", false)
 		
+		@font = Gosu::Font.new(self, Gosu::default_font_name,20)
+		@font_color = Gosu::Color::BLACK
+		
 		@container_desenho = ContainerDesenho.new(self)
 		
 		@container_entrada = ContainerEntrada.new(self)
+		
+		@error_text = ''
+		
+		#@onda = Onda.new(:amplietude => 30.0,
+		#			:lambda => 50.0,
+		#			:velocidade => 200.0,
+		#			:periodo => 0.25,
+		#			:frequencia => 4.0)
 	end
 	
 	def draw
 		desenha_fundo
 		@container_desenho.draw
 		@container_entrada.draw
+		@font.draw(@error_text,@container_desenho.x,
+			@container_desenho.y + @container_desenho.height,
+			0,1,1,Gosu::Color::RED)
 		@cursor.draw(self.mouse_x, self.mouse_y, 0)
 	end
 	
@@ -23,11 +40,20 @@ class Janela < Gosu::Window
 		desenha_retangulo(0,0,self.width,self.height,@cor_de_fundo)
 	end
 	
-	def desenha_retangulo(x,y,w,h,c)
-		self.draw_quad(x,y,c ,x+w,y,c ,x+w,y+h,c ,x,y+h,c)
+	def desenha_retangulo(x,y,w,h,cor)
+		self.draw_quad(x,y,cor ,x+w,y,cor ,x+w,y+h,cor ,x,y+h,cor)
+	end
+	
+	def desenha_ponto_da_onda(x,y,altura,cor)
+		self.desenha_retangulo(x,y,1,altura,cor)
+	end
+	
+	def update
+		@container_entrada.update
 	end
 	
 	def button_down(id)
+		@error_text = ''
 		#if id == Gosu::KbTab then
 		#	# Tab key will not be 'eaten' by text fields; use for switching through
 		#	# text fields.
@@ -42,7 +68,8 @@ class Janela < Gosu::Window
 		#	end
 		if id == Gosu::MsLeft
 			# Mouse click: Select text field based on mouse position.
-			self.text_input = @container_entrada.text_fields.values.find{ |tf| tf.under_point?(self.mouse_x, self.mouse_y) rescue false }
+			@container_entrada.lmouse_click
 		end
 	end
+	
 end

@@ -1,4 +1,5 @@
 class Container
+	attr_reader :x, :y, :width, :height
 	def initialize(janela_pai)
 		@janela_pai = janela_pai
 		inicializa

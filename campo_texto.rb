@@ -54,7 +54,9 @@ class CampoTexto < Gosu::TextInput
 	end
 
   # Hit-test for selecting a text field with the mouse.
-	def under_point?(mouse_x, mouse_y)
+	def mouse_over?
+		mouse_x = @janela_pai.mouse_x
+		mouse_y = @janela_pai.mouse_y
 		mouse_x > @x and mouse_x < @x + @largura_campo and
 		mouse_y > @y and mouse_y < @y + height
 	end
