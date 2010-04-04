@@ -2,7 +2,6 @@
 	# Criado Por HugoLnx ( hugolnx@gmail.com )
 
 require 'rubygems'
-require 'complex'
 require 'gosu'
 require 'onda'
 require 'campo_texto'
